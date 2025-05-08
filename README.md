@@ -20,6 +20,9 @@ iree-compile matmul.mlir \
 
 Then you can open the `matmul.html` in your browser.
 
+If you are looking for how it looks like for a model, you can take a look at
+toy_llama.html. The source MLIR file is from [sharktank_models](https://github.com/iree-org/iree-test-suites/tree/main/sharktank_models)
+
 ## Graph Interaction Features
 - Move the graph: Click and drag the background to move the entire graph.
 - Zoom In/Out: Use your mouse wheel to zoom in and out smoothly.
