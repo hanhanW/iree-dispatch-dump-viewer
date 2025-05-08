@@ -2,7 +2,8 @@
 
 We can dump dispatch graph from IREE, using `--iree-flow-dump-dispatch-graph`
 flag. However, it is not efficient at model level in terms of display, because
-it has too many nodes. This is a toy script to display the graph in a browser.
+it has too many nodes. This is a toy script to display the graph in a browser,
+using https://github.com/antvis/G6.
 
 To display the graph in HTML, run this script,
 
