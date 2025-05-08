@@ -1,0 +1,26 @@
+digraph G {
+  compound = true;
+  subgraph cluster_1 {
+    v2 [shape = plain, label = " "];
+    label = "";
+    v3 [shape = box, label = "arg0"];
+    v4 [shape = box, label = "arg1"];
+    v5 [shape = ellipse, label = "%2 = hal.tensor.import\ntensor<?x?xf32>"];
+    v6 [shape = ellipse, label = "%5 = hal.tensor.import\ntensor<?x?xf32>"];
+    v7 [shape = ellipse, label = "%6 = flow.tensor.encode\ntensor<?x?xf32, #iree_encoding.encoding<operand_index = 0 : index, op_type =  matmul, element_types = [f32, f32, f32], user_indexing_maps = [affine_map<(d0, d1, d2) -> (d0, d2)>, affine_map<(d0, d1, d2) -> (d2, d1)>, affine_map<(d0, d1, d2) -> (d0, d1)>], iteration_sizes = [?, ?, ?]>>"];
+    v8 [shape = ellipse, label = "%7 = flow.tensor.encode\ntensor<?x?xf32, #iree_encoding.encoding<operand_index = 1 : index, op_type =  matmul, element_types = [f32, f32, f32], user_indexing_maps = [affine_map<(d0, d1, d2) -> (d0, d2)>, affine_map<(d0, d1, d2) -> (d2, d1)>, affine_map<(d0, d1, d2) -> (d0, d1)>], iteration_sizes = [?, ?, ?]>>"];
+    v9 [shape = box, label = "%8 = flow.dispatch[%0, %1, %3, %4]\n@foo_dispatch_0::@foo_dispatch_0_matmul_DxDxD_f32(%6, %7, %0, %1, %3, %4)\ntensor<?x?xf32, #iree_encoding.encoding<operand_index = 2 : index, op_type =  matmul, element_types = [f32, f32, f32], user_indexing_maps = [affine_map<(d0, d1, d2) -> (d0, d2)>, affine_map<(d0, d1, d2) -> (d2, d1)>, affine_map<(d0, d1, d2) -> (d0, d1)>], iteration_sizes = [?, ?, ?]>>"];
+    v10 [shape = ellipse, label = "%9 = flow.tensor.encode\ntensor<?x?xf32>"];
+    v11 [shape = ellipse, label = "%10 = hal.tensor.export\n!hal.buffer_view"];
+    v12 [shape = ellipse, label = " = util.return\n"];
+  }
+  v3 -> v5 [style = solid, label = "0"];
+  v4 -> v6 [style = solid, label = "0"];
+  v5 -> v7 [style = solid, label = "0"];
+  v6 -> v8 [style = solid, label = "0"];
+  v7 -> v9 [style = solid, label = "4"];
+  v8 -> v9 [style = solid, label = "5"];
+  v9 -> v10 [style = solid, label = "0"];
+  v10 -> v11 [style = solid, label = "0"];
+  v11 -> v12 [style = solid, label = ""];
+}

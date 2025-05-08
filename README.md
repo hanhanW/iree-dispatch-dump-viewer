@@ -7,13 +7,18 @@ it has too many nodes. This is a toy script to display the graph in a browser.
 To display the graph in HTML, run this script,
 
 ```bash
-iree-compile ... \
+# Target zen4 CPU for data-tiling on late materialization path.
+iree-compile matmul.mlir \
+  --iree-hal-target-device=local \
+  --iree-hal-local-target-device-backends=llvm-cpu \
+  --iree-llvmcpu-target-cpu=znver4 \
+  --iree-global-opt-enable-early-materialization \
   --iree-flow-dump-dispatch-graph \
-  --iree-flow-dump-dispatch-graph-output-file=dispatch.dot
-./dot_to_html.py dispatch.dot graph.html
+  --iree-flow-dump-dispatch-graph-output-file=matmul.dot
+./dot_to_html.py matmul.dot matmul.html
 ```
 
-Then you can open the `graph.html` in your browser.
+Then you can open the `matmul.html` in your browser.
 
 ## Graph Interaction Features
 - Move the graph: Click and drag the background to move the entire graph.
