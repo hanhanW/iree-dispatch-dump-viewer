@@ -22,5 +22,7 @@ Then you can open the `graph.html` in your browser.
     (similar to tracy profile)
 - Drag Nodes: Nodes can be repositioned by dragging them directly.
 
-It does not support searching the node at the moment, but I believe that it is
-doable.
+## TODO
+
+- Search the node with given dispatch name.
+- Display the dispatch content somehow.
