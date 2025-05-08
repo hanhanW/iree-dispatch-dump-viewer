@@ -38,7 +38,9 @@ def parse_dot(dot_file):
             # Split attributes by commas, but avoid breaking on commas inside
             # quotes. It basically maps to SSA form in MLIR.
             attributes = re.findall(r'(\w+)\s*=\s*"([^"]+)"', attributes_str)
-            node_attrs = {key.strip(): value.strip() for key, value in attributes}
+            node_attrs = {}
+            for key, value in attributes:
+                node_attrs[key.strip()] = value.strip().replace('\\n', '\n')
             nodes[node_id] = node_attrs
 
         # Match edges (e.g., A -> B [style = solid, label = ""];)
