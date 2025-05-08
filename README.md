@@ -26,3 +26,8 @@ Then you can open the `graph.html` in your browser.
 
 - Search the node with given dispatch name.
 - Display the dispatch content somehow.
+
+## Note
+
+The script is not maintained actively. It is just a toy. Any contribution is
+welcome.
